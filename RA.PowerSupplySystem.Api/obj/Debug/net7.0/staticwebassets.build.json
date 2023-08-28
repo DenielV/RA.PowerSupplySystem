@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "bKcIr31tnMmH5xk4TQw1zzXte+V47j1gjk2F4xgu6z4=",
+  "Source": "RA.PowerSupplySystem.Api",
+  "BasePath": "_content/RA.PowerSupplySystem.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

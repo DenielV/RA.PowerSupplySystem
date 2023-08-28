@@ -1,0 +1,15 @@
+C:\Users\denie\OneDrive\Documents\9no Semestre\Reconocimiento Automatizado\api\RA.PowerSupplySystem\RA.PowerSupplySystem.Application\bin\Debug\net7.0\RA.PowerSupplySystem.Application.deps.json
+C:\Users\denie\OneDrive\Documents\9no Semestre\Reconocimiento Automatizado\api\RA.PowerSupplySystem\RA.PowerSupplySystem.Application\bin\Debug\net7.0\RA.PowerSupplySystem.Application.dll
+C:\Users\denie\OneDrive\Documents\9no Semestre\Reconocimiento Automatizado\api\RA.PowerSupplySystem\RA.PowerSupplySystem.Application\bin\Debug\net7.0\RA.PowerSupplySystem.Application.pdb
+C:\Users\denie\OneDrive\Documents\9no Semestre\Reconocimiento Automatizado\api\RA.PowerSupplySystem\RA.PowerSupplySystem.Application\bin\Debug\net7.0\RA.PowerSupplySystem.Domain.dll
+C:\Users\denie\OneDrive\Documents\9no Semestre\Reconocimiento Automatizado\api\RA.PowerSupplySystem\RA.PowerSupplySystem.Application\bin\Debug\net7.0\RA.PowerSupplySystem.Domain.pdb
+C:\Users\denie\OneDrive\Documents\9no Semestre\Reconocimiento Automatizado\api\RA.PowerSupplySystem\RA.PowerSupplySystem.Application\obj\Debug\net7.0\RA.PowerSupplySystem.Application.csproj.AssemblyReference.cache
+C:\Users\denie\OneDrive\Documents\9no Semestre\Reconocimiento Automatizado\api\RA.PowerSupplySystem\RA.PowerSupplySystem.Application\obj\Debug\net7.0\RA.PowerSupplySystem.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\denie\OneDrive\Documents\9no Semestre\Reconocimiento Automatizado\api\RA.PowerSupplySystem\RA.PowerSupplySystem.Application\obj\Debug\net7.0\RA.PowerSupplySystem.Application.AssemblyInfoInputs.cache
+C:\Users\denie\OneDrive\Documents\9no Semestre\Reconocimiento Automatizado\api\RA.PowerSupplySystem\RA.PowerSupplySystem.Application\obj\Debug\net7.0\RA.PowerSupplySystem.Application.AssemblyInfo.cs
+C:\Users\denie\OneDrive\Documents\9no Semestre\Reconocimiento Automatizado\api\RA.PowerSupplySystem\RA.PowerSupplySystem.Application\obj\Debug\net7.0\RA.PowerSupplySystem.Application.csproj.CoreCompileInputs.cache
+C:\Users\denie\OneDrive\Documents\9no Semestre\Reconocimiento Automatizado\api\RA.PowerSupplySystem\RA.PowerSupplySystem.Application\obj\Debug\net7.0\RA.PowerSupplySystem.Application.csproj.CopyComplete
+C:\Users\denie\OneDrive\Documents\9no Semestre\Reconocimiento Automatizado\api\RA.PowerSupplySystem\RA.PowerSupplySystem.Application\obj\Debug\net7.0\RA.PowerSupplySystem.Application.dll
+C:\Users\denie\OneDrive\Documents\9no Semestre\Reconocimiento Automatizado\api\RA.PowerSupplySystem\RA.PowerSupplySystem.Application\obj\Debug\net7.0\refint\RA.PowerSupplySystem.Application.dll
+C:\Users\denie\OneDrive\Documents\9no Semestre\Reconocimiento Automatizado\api\RA.PowerSupplySystem\RA.PowerSupplySystem.Application\obj\Debug\net7.0\RA.PowerSupplySystem.Application.pdb
+C:\Users\denie\OneDrive\Documents\9no Semestre\Reconocimiento Automatizado\api\RA.PowerSupplySystem\RA.PowerSupplySystem.Application\obj\Debug\net7.0\ref\RA.PowerSupplySystem.Application.dll
