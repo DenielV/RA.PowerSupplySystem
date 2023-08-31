@@ -18,6 +18,7 @@ namespace RA.PowerSupplySystem.Api.Controllers
 
         // GET: api/<MaterialsController>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<MaterialListDto>>> Get()
         {
             var materials = await _mediator.Send(new GetAllMaterialsQuery());
@@ -26,6 +27,7 @@ namespace RA.PowerSupplySystem.Api.Controllers
 
         // GET api/<MaterialsController>/5
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<MaterialDetailsDto>> Get(int id)
         {
             var material = await _mediator.Send(new GetMaterialDetailsQuery(id));
@@ -34,6 +36,7 @@ namespace RA.PowerSupplySystem.Api.Controllers
 
         //GET api/<MaterialsController>/GetInventory
         [HttpGet("[action]")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<MaterialInventoryDto>>> GetInventory()
         {
             var inventory = await _mediator.Send(new GetMaterialsInventoryQuery());

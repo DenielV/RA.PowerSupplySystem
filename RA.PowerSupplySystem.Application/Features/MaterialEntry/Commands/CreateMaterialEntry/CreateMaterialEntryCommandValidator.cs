@@ -12,12 +12,12 @@ namespace RA.PowerSupplySystem.Application.Features.MaterialEntry.Commands.Creat
             this._materialRepository = materialRepository;
 
             RuleFor(q => q.MaterialId)
-                .NotNull().WithMessage("{PropertyName} is required")
-                .MustAsync(MaterialMustExist).WithMessage("Material with Id '{PropertyValue}' does not exist");
+                .NotNull().WithMessage("El campo {PropertyName} is obligatorio.")
+                .MustAsync(MaterialMustExist).WithMessage("El material con Id '{PropertyValue}' no existe.");
 
             RuleFor(q => q.Quantity)
-                .NotNull().WithMessage("{PropertyName} is required")
-                .GreaterThan(0).WithMessage("{PropertyName} must be greater than {ComparisonValue}");
+                .NotNull().WithMessage("El campo {PropertyName} is obligatorio.")
+                .GreaterThan(0).WithMessage("{PropertyName} debe ser mayor a {ComparisonValue}.");
         }
 
         private async Task<bool> MaterialMustExist(int materialId, CancellationToken token)

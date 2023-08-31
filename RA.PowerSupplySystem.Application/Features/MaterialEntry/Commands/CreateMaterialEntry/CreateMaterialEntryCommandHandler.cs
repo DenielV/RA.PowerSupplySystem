@@ -27,7 +27,7 @@ namespace RA.PowerSupplySystem.Application.Features.MaterialEntry.Commands.Creat
 
             if(validationResult.Errors.Any()) 
             {
-                throw new BadRequestException("Invalid Material Entry", validationResult);
+                throw new BadRequestException("Entrada de material invalida", validationResult);
             }
 
             var materialEntry = _mapper.Map<Domain.MaterialEntry>(request);
@@ -44,7 +44,7 @@ namespace RA.PowerSupplySystem.Application.Features.MaterialEntry.Commands.Creat
             return new BaseCommandResponse
             {
                 Id = materialEntry.Id,
-                Message = "Material entry created successfully",
+                Message = "Entrada de material creada exitosamente",
                 Success = true
             };
         }

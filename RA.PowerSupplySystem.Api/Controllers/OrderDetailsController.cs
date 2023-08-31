@@ -18,6 +18,7 @@ namespace RA.PowerSupplySystem.Api.Controllers
 
         // GET: api/<OrderDetailsController>/orderId
         [HttpGet("{orderId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<OrderDetailDto>>> Get(int orderId)
         {
             var orderDetails = await _mediator.Send(new GetOrderDetailsQuery(orderId));

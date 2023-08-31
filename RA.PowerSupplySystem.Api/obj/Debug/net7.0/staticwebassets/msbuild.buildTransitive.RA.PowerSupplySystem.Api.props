@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\RA.PowerSupplySystem.Api.props" />
-</Project>

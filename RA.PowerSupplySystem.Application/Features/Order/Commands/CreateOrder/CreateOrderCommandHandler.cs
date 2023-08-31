@@ -2,12 +2,14 @@
 using MediatR;
 using RA.PowerSupplySystem.Application.Contracts.Persistence;
 using RA.PowerSupplySystem.Application.Exceptions;
+using RA.PowerSupplySystem.Application.Models;
 using RA.PowerSupplySystem.Application.Responses;
+using RA.PowerSupplySystem.Application.Responses.Orders;
 using RA.PowerSupplySystem.Domain;
 
 namespace RA.PowerSupplySystem.Application.Features.Order.Commands.CreateOrder
 {
-    public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, BaseCommandResponse>
+    public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, CreateOrderCommandResponse>
     {
         private readonly IProductRepository _productRepository;
         private readonly IOrderDetailRepository _orderDetailRepository;
@@ -15,7 +17,7 @@ namespace RA.PowerSupplySystem.Application.Features.Order.Commands.CreateOrder
         private readonly IProductMaterialRepository _productMaterialRepository;
         private readonly IMaterialRepository _materialRepository;
         private readonly IMapper _mapper;
-        private List<Domain.Material> usedMaterials= new List<Domain.Material>();
+        private List<Domain.Material> usedMaterials = new List<Domain.Material>();
 
         public CreateOrderCommandHandler(IProductRepository productRepository, IOrderDetailRepository orderDetailRepository,
             IOrderRepository orderRepository, IProductMaterialRepository productMaterialRepository,
@@ -28,14 +30,14 @@ namespace RA.PowerSupplySystem.Application.Features.Order.Commands.CreateOrder
             _materialRepository = materialRepository;
             _mapper = mapper;
         }
-        public async Task<BaseCommandResponse> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
+        public async Task<CreateOrderCommandResponse> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateOrderCommandValidator(_productRepository);
             var validationResult = await validator.ValidateAsync(request);
 
             if (validationResult.Errors.Any())
             {
-                throw new BadRequestException("Invalid Order", validationResult);
+                throw new BadRequestException("Orden Invalida", validationResult);
             }
 
             var products = await _productRepository.GetAllAsync();
@@ -51,15 +53,15 @@ namespace RA.PowerSupplySystem.Application.Features.Order.Commands.CreateOrder
             foreach (var detail in request.Products)
             {
                 var requiredMaterials = productsMaterials.Where(q => q.ProductId == detail.ProductId).ToList();
-                var errors = SubstractMaterials(requiredMaterials, detail.Quantity);
-                if (errors.Any())
+                var insufficientMaterials = SubstractMaterials(requiredMaterials, detail.Quantity);
+                if (insufficientMaterials.Any())
                 {
-                    return new BaseCommandResponse
+                    return new CreateOrderCommandResponse
                     {
                         Message = "No hay suficientes materiales para esta orden",
                         Id = 0,
                         Success = false,
-                        Errors = errors
+                        InsufficientMaterials = insufficientMaterials
                     };
                 }
                 var orderDetail = _mapper.Map<Domain.OrderDetail>(detail);
@@ -78,23 +80,30 @@ namespace RA.PowerSupplySystem.Application.Features.Order.Commands.CreateOrder
 
             await _orderDetailRepository.AddOrderDetails(orderDetails);
 
-            return new BaseCommandResponse
+            return new CreateOrderCommandResponse
             {
                 Id = order.Id,
-                Message = "Order created successfully",
+                Message = "Orden creada exitosamente",
                 Success = true
             };
         }
 
-        private List<string> SubstractMaterials(List<ProductMaterial> productMaterials, int productQuantity)
+        private List<InsufficientMaterialDetail> SubstractMaterials(List<ProductMaterial> productMaterials, int productQuantity)
         {
-            List<string> errors = new List<string>();
+            List<InsufficientMaterialDetail> insufficientMaterials = new List<InsufficientMaterialDetail>();
             foreach (var productMat in productMaterials)
             {
                 int materialNeeded = productQuantity * productMat.Quantity;
                 if (materialNeeded > productMat.Material.Stock)
                 {
-                    errors.Add($"No hay suficiente material ({productMat.Material.Name})");
+                    //insufficientMaterials.Add($"No hay suficiente material ({productMat.Material.Name})");
+                    insufficientMaterials.Add(new InsufficientMaterialDetail
+                    {
+                        Id = productMat.Material.Id,
+                        Name = productMat.Material.Name,
+                        AvailableQty = productMat.Material.Stock,
+                        RequiredQty = materialNeeded
+                    });
                     continue;
                 }
                 productMat.Material.Stock -= materialNeeded;
@@ -103,7 +112,7 @@ namespace RA.PowerSupplySystem.Application.Features.Order.Commands.CreateOrder
                     usedMaterials.Add(productMat.Material);
                 }
             }
-            return errors;
+            return insufficientMaterials;
         }
     }
 }

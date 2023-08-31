@@ -19,6 +19,7 @@ namespace RA.PowerSupplySystem.Api.Controllers
 
         // GET: api/<OrdersController>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<OrderListDto>>> Get()
         {
             var orders = await _mediator.Send(new GetAllOrdersQuery());
@@ -27,6 +28,8 @@ namespace RA.PowerSupplySystem.Api.Controllers
 
         // POST: api/<OrdersController>
         [HttpPost()]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] CreateOrderCommand createOrderCommand)
         {
             var response = await _mediator.Send(createOrderCommand);

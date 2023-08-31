@@ -12,8 +12,8 @@ namespace RA.PowerSupplySystem.Application.Features.Order.Commands.CreateOrder
             _productRepository = productRepository;
 
             RuleFor(q => q.Products)
-                .NotNull().WithMessage("{PropertyName} is required")
-                .Must(ProductsListMustNotBeEmpty).WithMessage("You have to add at least one product to the order");
+                .NotNull().WithMessage("El campo {PropertyName} is obligatorio.")
+                .Must(ProductsListMustNotBeEmpty).WithMessage("Se debe agregar por lo menos un producto a la orden.");
 
             RuleForEach(q => q.Products).SetValidator(new OrderProductDtoValidator(_productRepository));
         }

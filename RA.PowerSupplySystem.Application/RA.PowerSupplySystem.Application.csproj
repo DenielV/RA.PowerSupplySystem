@@ -10,7 +10,6 @@
     <Folder Include="Features\Material\Commands\" />
     <Folder Include="Features\OrderDetail\Commands\" />
     <Folder Include="Features\Product\Commands\" />
-    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>

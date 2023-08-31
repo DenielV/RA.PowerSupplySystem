@@ -18,6 +18,7 @@ namespace RA.PowerSupplySystem.Api.Controllers
 
         // GET: api/<MaterialEntriesController>/1
         [HttpGet("{materialId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<MaterialEntryListDto>>> Get(int materialId)
         {
             var materialEntries = await _mediator.Send(new GetAllMaterialEntriesQuery(materialId));
@@ -26,6 +27,8 @@ namespace RA.PowerSupplySystem.Api.Controllers
 
         // POST: api/<MaterialEntriesController>
         [HttpPost()]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] CreateMaterialEntryCommand createMaterialEntryCommand)
         {
             var response = await _mediator.Send(createMaterialEntryCommand);

@@ -16,6 +16,7 @@ namespace RA.PowerSupplySystem.Api.Controllers
 
         // GET: api/<ProductsController>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<ProductDto>>> Get()
         {
             var products = await _mediator.Send(new GetAllProductsQuery());
