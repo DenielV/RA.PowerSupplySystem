@@ -12,5 +12,6 @@ namespace RA.PowerSupplySystem.Application.Models
         public string Name { get; set; }
         public int RequiredQty { get;set; }
         public int AvailableQty { get; set; }
+        public int MissingQty { get; set; }
     }
 }

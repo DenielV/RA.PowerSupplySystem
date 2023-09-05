@@ -15,5 +15,6 @@ namespace RA.PowerSupplySystem.Application.Features.Material.Queries.GetMaterial
         public int Stock { get; set; }
         public DateTime LastEntryDate { get; set; }
         public string LastBatch { get; set; }
+        public byte[]? LastImage { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using RA.PowerSupplySystem.Application.Contracts.Persistence;
 using RA.PowerSupplySystem.Application.Exceptions;
 using RA.PowerSupplySystem.Application.Responses;
@@ -34,6 +35,8 @@ namespace RA.PowerSupplySystem.Application.Features.MaterialEntry.Commands.Creat
             materialEntry.EntryDate = DateTime.Now;
             materialEntry.Batch = Guid.NewGuid().ToString();
 
+            materialEntry.ImageData = await GetBytes(request.ImageFile);
+
             await _materialEntryRepository.CreateAsync(materialEntry);
 
             var material = await _materialRepository.GetAsync(request.MaterialId);
@@ -47,6 +50,13 @@ namespace RA.PowerSupplySystem.Application.Features.MaterialEntry.Commands.Creat
                 Message = "Entrada de material creada exitosamente",
                 Success = true
             };
+        }
+
+        private async Task<byte[]> GetBytes(IFormFile file)
+        {
+            await using MemoryStream memoryStream = new();
+            await file.CopyToAsync(memoryStream);
+            return memoryStream.ToArray();
         }
     }
 }

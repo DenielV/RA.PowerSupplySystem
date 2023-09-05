@@ -102,7 +102,8 @@ namespace RA.PowerSupplySystem.Application.Features.Order.Commands.CreateOrder
                         Id = productMat.Material.Id,
                         Name = productMat.Material.Name,
                         AvailableQty = productMat.Material.Stock,
-                        RequiredQty = materialNeeded
+                        RequiredQty = materialNeeded,
+                        MissingQty = materialNeeded - productMat.Material.Stock,
                     });
                     continue;
                 }

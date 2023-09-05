@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using RA.PowerSupplySystem.Application.Responses;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,6 @@ namespace RA.PowerSupplySystem.Application.Features.MaterialEntry.Commands.Creat
     {
         public int MaterialId { get; set; }
         public int Quantity { get; set; }
+        public IFormFile ImageFile { get; set; }
     }
 }

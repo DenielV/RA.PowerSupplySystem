@@ -18,6 +18,8 @@ namespace RA.PowerSupplySystem.Application.Features.MaterialEntry.Commands.Creat
             RuleFor(q => q.Quantity)
                 .NotNull().WithMessage("El campo {PropertyName} is obligatorio.")
                 .GreaterThan(0).WithMessage("{PropertyName} debe ser mayor a {ComparisonValue}.");
+            RuleFor(q => q.ImageFile)
+                .NotNull().WithMessage("La imagen es obligatoria.");
         }
 
         private async Task<bool> MaterialMustExist(int materialId, CancellationToken token)
