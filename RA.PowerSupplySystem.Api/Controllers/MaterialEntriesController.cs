@@ -29,7 +29,7 @@ namespace RA.PowerSupplySystem.Api.Controllers
         [HttpPost()]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] CreateMaterialEntryCommand createMaterialEntryCommand)
+        public async Task<ActionResult<BaseCommandResponse>> Post([FromForm] CreateMaterialEntryCommand createMaterialEntryCommand)
         {
             var response = await _mediator.Send(createMaterialEntryCommand);
             return Ok(response);
