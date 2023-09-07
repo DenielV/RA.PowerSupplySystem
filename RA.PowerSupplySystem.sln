@@ -17,9 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RA.PowerSupplySystem.Domain
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RA.PowerSupplySystem.Application", "RA.PowerSupplySystem.Application\RA.PowerSupplySystem.Application.csproj", "{FA791554-5B98-4967-B4CD-16546DA27709}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RA.PowerSupplySystem.Persistence", "RA.PowerSupplySystem.Persistence\RA.PowerSupplySystem.Persistence.csproj", "{7FEE1B49-F008-4B60-A94F-1C8C4C317A66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RA.PowerSupplySystem.Persistence", "RA.PowerSupplySystem.Persistence\RA.PowerSupplySystem.Persistence.csproj", "{7FEE1B49-F008-4B60-A94F-1C8C4C317A66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RA.PowerSupplySystem.Api", "RA.PowerSupplySystem.Api\RA.PowerSupplySystem.Api.csproj", "{3E55AD60-1489-4E6D-9778-836046BCA633}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RA.PowerSupplySystem.Api", "RA.PowerSupplySystem.Api\RA.PowerSupplySystem.Api.csproj", "{3E55AD60-1489-4E6D-9778-836046BCA633}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RA.PowerSupplySystem.Identity", "RA.PowerSupplySystem.Identity\RA.PowerSupplySystem.Identity.csproj", "{1ECD80B6-3DD9-4C27-93B1-85A1947EE8DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{3E55AD60-1489-4E6D-9778-836046BCA633}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E55AD60-1489-4E6D-9778-836046BCA633}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E55AD60-1489-4E6D-9778-836046BCA633}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ECD80B6-3DD9-4C27-93B1-85A1947EE8DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ECD80B6-3DD9-4C27-93B1-85A1947EE8DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ECD80B6-3DD9-4C27-93B1-85A1947EE8DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ECD80B6-3DD9-4C27-93B1-85A1947EE8DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{FA791554-5B98-4967-B4CD-16546DA27709} = {0A4D13F1-7603-48B1-BFB6-4BF8AD913431}
 		{7FEE1B49-F008-4B60-A94F-1C8C4C317A66} = {31B0E190-DC86-4FE3-B177-7C3C256D23A6}
 		{3E55AD60-1489-4E6D-9778-836046BCA633} = {36ED3780-9BA4-4209-AF1B-EB8984C5AB80}
+		{1ECD80B6-3DD9-4C27-93B1-85A1947EE8DA} = {31B0E190-DC86-4FE3-B177-7C3C256D23A6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FC58B7CD-BC20-46B3-AA99-AA8822B90987}

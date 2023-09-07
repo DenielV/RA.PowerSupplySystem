@@ -1,5 +1,6 @@
 using RA.PowerSupplySystem.Api.Middleware;
 using RA.PowerSupplySystem.Application;
+using RA.PowerSupplySystem.Identity;
 using RA.PowerSupplySystem.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddApplicationServices();
 builder.Services.AddPersistenceServices(builder.Configuration);
+builder.Services.AddIdentityServices(builder.Configuration);
 
 builder.Services.AddControllers();
 
