@@ -16,7 +16,7 @@ namespace RA.PowerSupplySystem.Application.Features.Order.Queries.GetAllOrders
         }
         public async Task<List<OrderListDto>> Handle(GetAllOrdersQuery request, CancellationToken cancellationToken)
         {
-            var orders = await _orderRepository.GetAllAsync();
+            var orders = await _orderRepository.GetAllOrdersWithStatus();
             return _mapper.Map<List<OrderListDto>>(orders);
         }
     }

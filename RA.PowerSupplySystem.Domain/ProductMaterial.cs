@@ -4,7 +4,6 @@ namespace RA.PowerSupplySystem.Domain
 {
     public class ProductMaterial : BaseEntity
     {
-        public int Id { get; set; }
         public Product Product { get; set; }
         public int ProductId { get; set; }
         public Material Material { get; set; }

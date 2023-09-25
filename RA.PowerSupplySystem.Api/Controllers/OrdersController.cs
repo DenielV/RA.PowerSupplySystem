@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RA.PowerSupplySystem.Application.Features.MaterialEntry.Commands.CreateMaterialEntry;
 using RA.PowerSupplySystem.Application.Features.MaterialEntry.Queries.GetAllMaterialEntries;
+using RA.PowerSupplySystem.Application.Features.Order.Commands.ChangeOrderStatus;
 using RA.PowerSupplySystem.Application.Features.Order.Commands.CreateOrder;
 using RA.PowerSupplySystem.Application.Features.Order.Queries.GetAllOrders;
 using RA.PowerSupplySystem.Application.Responses;
@@ -33,6 +34,15 @@ namespace RA.PowerSupplySystem.Api.Controllers
         public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] CreateOrderCommand createOrderCommand)
         {
             var response = await _mediator.Send(createOrderCommand);
+            return Ok(response);
+        }
+
+        [HttpPost("ChangeStatus")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<BaseCommandResponse>> ChangeStatus([FromBody] ChangeOrderStatusCommand changeOrderStatusCommand)
+        {
+            var response = await _mediator.Send(changeOrderStatusCommand);
             return Ok(response);
         }
     }

@@ -4,7 +4,6 @@ namespace RA.PowerSupplySystem.Domain
 {
     public class MaterialEntry : BaseEntity
     {
-        public int Id { get; set; }
         public Material Material { get; set; }
         public int MaterialId { get; set; }
         public DateTime EntryDate { get; set; }

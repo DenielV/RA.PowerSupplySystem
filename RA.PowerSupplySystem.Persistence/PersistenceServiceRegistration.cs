@@ -29,6 +29,7 @@ namespace RA.PowerSupplySystem.Persistence
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
             services.AddScoped<IProductMaterialRepository, ProductMaterialRepository>();
+            services.AddScoped<IOrderStatusRepository, OrderStatusRepository>();
             return services;
         }
     }

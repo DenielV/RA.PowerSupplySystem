@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RA.PowerSupplySystem.Persistence.DatabaseContext;
 
@@ -11,9 +12,11 @@ using RA.PowerSupplySystem.Persistence.DatabaseContext;
 namespace RA.PowerSupplySystem.Persistence.Migrations
 {
     [DbContext(typeof(RaDatabaseContext))]
-    partial class RaDatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230925004254_AddedOrderStatus")]
+    partial class AddedOrderStatus
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -119,7 +122,7 @@ namespace RA.PowerSupplySystem.Persistence.Migrations
                         {
                             Id = 1,
                             Batch = "c256530b-adfc-4006-916a-3120933895f1",
-                            EntryDate = new DateTime(2023, 9, 24, 17, 47, 47, 154, DateTimeKind.Local).AddTicks(7638),
+                            EntryDate = new DateTime(2023, 9, 24, 17, 42, 53, 895, DateTimeKind.Local).AddTicks(8220),
                             MaterialId = 1,
                             Quantity = 1000
                         },
@@ -127,7 +130,7 @@ namespace RA.PowerSupplySystem.Persistence.Migrations
                         {
                             Id = 2,
                             Batch = "410bef14-6e7b-4714-ac3b-32c67de86c38",
-                            EntryDate = new DateTime(2023, 9, 24, 17, 47, 47, 154, DateTimeKind.Local).AddTicks(7689),
+                            EntryDate = new DateTime(2023, 9, 24, 17, 42, 53, 895, DateTimeKind.Local).AddTicks(8272),
                             MaterialId = 2,
                             Quantity = 100
                         },
@@ -135,7 +138,7 @@ namespace RA.PowerSupplySystem.Persistence.Migrations
                         {
                             Id = 3,
                             Batch = "8b82b18b-1293-43e7-8e9e-ecbab8336081",
-                            EntryDate = new DateTime(2023, 9, 24, 17, 47, 47, 154, DateTimeKind.Local).AddTicks(7692),
+                            EntryDate = new DateTime(2023, 9, 24, 17, 42, 53, 895, DateTimeKind.Local).AddTicks(8275),
                             MaterialId = 3,
                             Quantity = 100
                         },
@@ -143,7 +146,7 @@ namespace RA.PowerSupplySystem.Persistence.Migrations
                         {
                             Id = 4,
                             Batch = "f50d6f6d-7942-4d2f-b586-22df1889b858",
-                            EntryDate = new DateTime(2023, 9, 24, 17, 47, 47, 154, DateTimeKind.Local).AddTicks(7694),
+                            EntryDate = new DateTime(2023, 9, 24, 17, 42, 53, 895, DateTimeKind.Local).AddTicks(8277),
                             MaterialId = 4,
                             Quantity = 1000
                         });
@@ -211,12 +214,7 @@ namespace RA.PowerSupplySystem.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PreviousStatusId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("PreviousStatusId");
 
                     b.ToTable("OrderStatuses");
 
@@ -229,20 +227,17 @@ namespace RA.PowerSupplySystem.Persistence.Migrations
                         new
                         {
                             Id = 2,
-                            Name = "En almacén",
-                            PreviousStatusId = 1
+                            Name = "En almacén"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Enviado",
-                            PreviousStatusId = 2
+                            Name = "Enviado"
                         },
                         new
                         {
                             Id = 4,
-                            Name = "Entregado",
-                            PreviousStatusId = 3
+                            Name = "Entregado"
                         });
                 });
 
@@ -374,15 +369,6 @@ namespace RA.PowerSupplySystem.Persistence.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("RA.PowerSupplySystem.Domain.OrderStatus", b =>
-                {
-                    b.HasOne("RA.PowerSupplySystem.Domain.OrderStatus", "PreviousStatus")
-                        .WithMany()
-                        .HasForeignKey("PreviousStatusId");
-
-                    b.Navigation("PreviousStatus");
                 });
 
             modelBuilder.Entity("RA.PowerSupplySystem.Domain.ProductMaterial", b =>

@@ -5,8 +5,9 @@ namespace RA.PowerSupplySystem.Domain
 {
     public class Order : BaseEntity
     {
-        public int Id { get; set; }
         public DateTime OrderDate { get; set; }
         public decimal Total { get; set; }
+        public OrderStatus OrderStatus { get; set; }
+        public int OrderStatusId { get; set; }
     }
 }

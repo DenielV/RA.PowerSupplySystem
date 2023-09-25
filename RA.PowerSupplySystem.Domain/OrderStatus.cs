@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace RA.PowerSupplySystem.Domain
 {
-    public class Material : BaseEntity
+    public class OrderStatus : BaseEntity
     {
-        public string PartNumber { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public int Stock { get; set; }
+        public OrderStatus PreviousStatus { get; set; } 
+        public int? PreviousStatusId { get; set; }
     }
 }
