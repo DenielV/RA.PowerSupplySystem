@@ -47,7 +47,8 @@ namespace RA.PowerSupplySystem.Application.Features.Order.Commands.CreateOrder
             {
                 OrderDate = DateTime.Now,
                 Total = 0,
-                OrderStatusId = 1
+                OrderStatusId = 1,
+                OrderNumber = Guid.NewGuid().ToString(),
             };
             var orderDetails = new List<Domain.OrderDetail>();
 

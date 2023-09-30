@@ -10,6 +10,8 @@ namespace RA.PowerSupplySystem.Application.Features.Order.Queries.GetAllOrders
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
+        public int? NextStatusId { get; set; }
+        public string? Action { get; set; }
+        public string? ActionGifLink { get; set; }
     }
 }
