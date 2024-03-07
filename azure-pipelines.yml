@@ -15,3 +15,18 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+
+- script: dotnet publish PowerSupplySystemApi --configuration Release --output publish/
+  displayName: Packing application PowerSupplySystemApi
+
+- task: CopyFiles@2
+  displayName: Copy packed application WebApp to output
+  inputs:
+    contents: |
+      PowerSupplySystemApi/publish/**
+      !**/appsettings.Development.json
+    targetFolder: '$(Build.ArtifactStagingDirectory)/'
+    flattenFolders: true
+
+- task: PublishBuildArtifacts@1
+  displayName: Publishing artifacts
