@@ -16,14 +16,14 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
-- script: dotnet publish PowerSupplySystemApi --configuration Release --output publish/
-  displayName: Packing application PowerSupplySystemApi
+- script: dotnet publish RA.PowerSupplySystem.Api --configuration Release --output publish/
+  displayName: Packing application RA.PowerSupplySystem.Api
 
 - task: CopyFiles@2
   displayName: Copy packed application WebApp to output
   inputs:
     contents: |
-      PowerSupplySystemApi/publish/**
+      RA.PowerSupplySystem.Api/publish/**
       !**/appsettings.Development.json
     targetFolder: '$(Build.ArtifactStagingDirectory)/'
     flattenFolders: true
