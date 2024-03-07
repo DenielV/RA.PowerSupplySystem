@@ -20,13 +20,9 @@ steps:
   displayName: Packing application RA.PowerSupplySystem.Api
 
 - task: CopyFiles@2
-  displayName: Copy packed application WebApp to output
   inputs:
-    contents: |
-      RA.PowerSupplySystem.Api/publish/**
-      !**/appsettings.Development.json
-    targetFolder: '$(Build.ArtifactStagingDirectory)/'
-    flattenFolders: true
+    Contents: 'publish/**'
+    TargetFolder: '$(build.artifactstagingdirectory)'
 
 - task: PublishBuildArtifacts@1
   displayName: Publishing artifacts
