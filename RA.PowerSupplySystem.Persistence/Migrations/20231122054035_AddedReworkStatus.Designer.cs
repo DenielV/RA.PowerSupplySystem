@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RA.PowerSupplySystem.Persistence.DatabaseContext;
 
@@ -11,9 +12,11 @@ using RA.PowerSupplySystem.Persistence.DatabaseContext;
 namespace RA.PowerSupplySystem.Persistence.Migrations
 {
     [DbContext(typeof(RaDatabaseContext))]
-    partial class RaDatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20231122054035_AddedReworkStatus")]
+    partial class AddedReworkStatus
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -119,7 +122,7 @@ namespace RA.PowerSupplySystem.Persistence.Migrations
                         {
                             Id = 1,
                             Batch = "c256530b-adfc-4006-916a-3120933895f1",
-                            EntryDate = new DateTime(2023, 11, 21, 22, 44, 44, 844, DateTimeKind.Local).AddTicks(3952),
+                            EntryDate = new DateTime(2023, 11, 21, 22, 40, 35, 385, DateTimeKind.Local).AddTicks(4689),
                             MaterialId = 1,
                             Quantity = 1000
                         },
@@ -127,7 +130,7 @@ namespace RA.PowerSupplySystem.Persistence.Migrations
                         {
                             Id = 2,
                             Batch = "410bef14-6e7b-4714-ac3b-32c67de86c38",
-                            EntryDate = new DateTime(2023, 11, 21, 22, 44, 44, 844, DateTimeKind.Local).AddTicks(3968),
+                            EntryDate = new DateTime(2023, 11, 21, 22, 40, 35, 385, DateTimeKind.Local).AddTicks(4704),
                             MaterialId = 2,
                             Quantity = 100
                         },
@@ -135,7 +138,7 @@ namespace RA.PowerSupplySystem.Persistence.Migrations
                         {
                             Id = 3,
                             Batch = "8b82b18b-1293-43e7-8e9e-ecbab8336081",
-                            EntryDate = new DateTime(2023, 11, 21, 22, 44, 44, 844, DateTimeKind.Local).AddTicks(3969),
+                            EntryDate = new DateTime(2023, 11, 21, 22, 40, 35, 385, DateTimeKind.Local).AddTicks(4706),
                             MaterialId = 3,
                             Quantity = 100
                         },
@@ -143,7 +146,7 @@ namespace RA.PowerSupplySystem.Persistence.Migrations
                         {
                             Id = 4,
                             Batch = "f50d6f6d-7942-4d2f-b586-22df1889b858",
-                            EntryDate = new DateTime(2023, 11, 21, 22, 44, 44, 844, DateTimeKind.Local).AddTicks(3970),
+                            EntryDate = new DateTime(2023, 11, 21, 22, 40, 35, 385, DateTimeKind.Local).AddTicks(4707),
                             MaterialId = 4,
                             Quantity = 1000
                         });

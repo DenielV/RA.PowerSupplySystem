@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using RA.PowerSupplySystem.Application.Features.Order.Queries.GetAllOrders;
+using RA.PowerSupplySystem.Application.Features.Order.Queries.Shared;
 using RA.PowerSupplySystem.Domain;
 using System;
 using System.Collections.Generic;

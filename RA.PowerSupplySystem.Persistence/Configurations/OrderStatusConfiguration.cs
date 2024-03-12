@@ -58,6 +58,15 @@ namespace RA.PowerSupplySystem.Persistence.Configurations
                     NextStatusId = null,
                     Action = null,
                     ActionGifLink = null
+                },
+                new OrderStatus
+                {
+                    Id = 6,
+                    Name = "En retrabajo",
+                    PreviousStatusId = null,
+                    NextStatusId = 2,
+                    Action = "Retrabajar",
+                    ActionGifLink = "https://i.makeagif.com/media/12-04-2020/UrVrI_.gif"
                 }
                 );
         }

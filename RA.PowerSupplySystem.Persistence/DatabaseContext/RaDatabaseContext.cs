@@ -19,6 +19,7 @@ namespace RA.PowerSupplySystem.Persistence.DatabaseContext
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductMaterial> ProductMaterials { get; set; }
         public DbSet<OrderStatus> OrderStatuses { get; set; }
+        public DbSet<Unit> Units { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

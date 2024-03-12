@@ -12,6 +12,6 @@ namespace RA.PowerSupplySystem.Application.Features.Product.Queries.GetAllProduc
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public SqlMoney Price { get; set; }
+        public decimal Price { get; set; }
     }
 }

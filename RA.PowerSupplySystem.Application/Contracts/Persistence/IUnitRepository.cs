@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace RA.PowerSupplySystem.Application.Contracts.Persistence
 {
-    public interface IOrderStatusRepository : IGenericRepository<OrderStatus>
+    public interface IUnitRepository : IGenericRepository<Unit>
     {
-        Task<OrderStatus> GetOrderStatusByName(string name);
+        Task<List<Unit>> GetAllOrderUnitsByProduct(int orderId, int productId);
+        Task DeleteUnitList(List<Unit> unitList);
     }
 }

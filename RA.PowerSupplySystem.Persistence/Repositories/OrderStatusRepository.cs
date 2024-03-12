@@ -1,4 +1,5 @@
-﻿using RA.PowerSupplySystem.Application.Contracts.Persistence;
+﻿using Microsoft.EntityFrameworkCore;
+using RA.PowerSupplySystem.Application.Contracts.Persistence;
 using RA.PowerSupplySystem.Domain;
 using RA.PowerSupplySystem.Persistence.DatabaseContext;
 using System;
@@ -13,6 +14,11 @@ namespace RA.PowerSupplySystem.Persistence.Repositories
     {
         public OrderStatusRepository(RaDatabaseContext context) : base(context)
         {
+        }
+
+        public async Task<OrderStatus> GetOrderStatusByName(string name)
+        {
+            return await _context.OrderStatuses.FirstOrDefaultAsync(q => q.Name == name);
         }
     }
 }

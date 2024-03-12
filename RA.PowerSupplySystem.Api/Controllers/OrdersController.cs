@@ -4,9 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 using RA.PowerSupplySystem.Application.Features.MaterialEntry.Commands.CreateMaterialEntry;
 using RA.PowerSupplySystem.Application.Features.MaterialEntry.Queries.GetAllMaterialEntries;
 using RA.PowerSupplySystem.Application.Features.Order.Commands.ChangeOrderStatus;
+using RA.PowerSupplySystem.Application.Features.Order.Commands.CheckForOrderCompletion;
 using RA.PowerSupplySystem.Application.Features.Order.Commands.CreateOrder;
 using RA.PowerSupplySystem.Application.Features.Order.Queries.GetAllOrders;
+using RA.PowerSupplySystem.Application.Features.Order.Queries.GetAllOrdersToTest;
+using RA.PowerSupplySystem.Application.Features.Order.Queries.Shared;
 using RA.PowerSupplySystem.Application.Responses;
+using RA.PowerSupplySystem.Application.Responses.Orders;
 
 namespace RA.PowerSupplySystem.Api.Controllers
 {
@@ -21,10 +25,29 @@ namespace RA.PowerSupplySystem.Api.Controllers
         // GET: api/<OrdersController>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<List<OrderListDto>>> Get()
         {
             var orders = await _mediator.Send(new GetAllOrdersQuery());
             return Ok(orders);
+        }
+
+        [HttpGet("GetOrdersToTest")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<List<OrderListDto>>> GetOrdersToTest()
+        {
+            var orders = await _mediator.Send(new GetAllOrdersToTestQuery());
+            return Ok(orders);
+        }
+
+        [HttpGet("CheckForOrderCompletion/{orderId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<CheckForOrderCompletionResponse>> CheckForOrderCompletion(int orderId)
+        {
+            var response = await _mediator.Send(new CheckForOrderCompletionCommand { OrderId = orderId });
+            return Ok(response);
         }
 
         // POST: api/<OrdersController>

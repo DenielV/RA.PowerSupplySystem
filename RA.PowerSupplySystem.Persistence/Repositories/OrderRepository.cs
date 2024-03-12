@@ -20,5 +20,11 @@ namespace RA.PowerSupplySystem.Persistence.Repositories
         {
             return await _context.Orders.Include(o => o.OrderStatus).AsNoTracking().ToListAsync();
         }
+
+        public async Task<Order> GetOrderWithStatus(int orderId)
+        {
+            return await _context.Orders.Include(q => q.OrderStatus).AsNoTracking()
+                .FirstOrDefaultAsync(q => q.Id == orderId);
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RA.PowerSupplySystem.Application.Exceptions
 {
-    public class NotFoundException : Exception
+    public class NotFoundException : ApplicationException
     {
         public NotFoundException(string name, object key) : base($"{name} ({key}) was not found")
         {

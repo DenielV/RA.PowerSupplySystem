@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using RA.PowerSupplySystem.Application.Contracts.Persistence;
+using RA.PowerSupplySystem.Application.Features.Order.Queries.Shared;
 
 namespace RA.PowerSupplySystem.Application.Features.Order.Queries.GetAllOrders
 {

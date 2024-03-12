@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RA.PowerSupplySystem.Application.Features.Order.Queries.GetAllOrders
+namespace RA.PowerSupplySystem.Application.Features.Order.Queries.Shared
 {
     public class OrderStatusDto
     {

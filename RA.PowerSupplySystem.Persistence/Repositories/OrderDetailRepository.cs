@@ -27,5 +27,10 @@ namespace RA.PowerSupplySystem.Persistence.Repositories
             return await _context.OrderDetails.AsNoTracking().Where(q => q.OrderId == orderId)
                 .Include(q => q.Order).Include(q => q.Product).ToListAsync();
         }
+
+        public int GetOrderProductQuantity(int orderId, int productId)
+        {
+            return _context.OrderDetails.AsNoTracking().First(q => q.OrderId == orderId && q.ProductId == productId).Quantity;
+        }
     }
 }

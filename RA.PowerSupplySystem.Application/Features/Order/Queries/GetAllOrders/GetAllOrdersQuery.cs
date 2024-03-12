@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using RA.PowerSupplySystem.Application.Features.Order.Queries.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
