@@ -26,7 +26,7 @@ namespace RA.PowerSupplySystem.Application.Features.Material.Queries.GetMaterial
             foreach (var mat in materialsInventory)
             {
                 var lastEntry = await _materialEntryRepository.GetLastMaterialEntry(mat.Id);
-                mat.LastEntryDate = lastEntry.EntryDate.ToUniversalTime();
+                mat.LastEntryDate = lastEntry.EntryDate;
                 mat.LastBatch = lastEntry.Batch;
                 mat.LastImage = lastEntry.ImageData;
             }
